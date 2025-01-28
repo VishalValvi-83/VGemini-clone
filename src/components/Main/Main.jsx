@@ -75,15 +75,17 @@ function Main() {
             <input
               onChange={(e) => setInput(e.target.value)}
               value={input}
+              // onKeyPress={() => onSent()}
               type="text"
               placeholder="Enter a prompt here"
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
+              {/* <img src={assets.gallery_icon} alt="" />
+              <img src={assets.mic_icon} alt="" /> */}
               {input ? (
                 <img onClick={() => onSent()} src={assets.send_icon} alt="" />
               ) : null}
+              
             </div>
           </div>
           <p className="bottom-info">

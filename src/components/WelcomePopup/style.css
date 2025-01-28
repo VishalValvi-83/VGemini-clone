@@ -2,13 +2,15 @@
     font-family: Arial, sans-serif;
     text-align: center;
 }
-.logged-in-nav{
+
+.logged-in-nav {
     display: flex;
+    gap : 10px;
     align-items: center;
     justify-content: space-between;
     width: auto;
 }
-/* Welcome Popup */
+
 .popup {
     position: fixed;
     top: 0;
@@ -31,6 +33,7 @@
     max-width: 400px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .nav {
     display: flex;
     align-items: center;
@@ -38,7 +41,8 @@
     font-size: 22px;
     padding: 20px;
     color: #0f62ce;
-  }
+}
+
 .popup-content h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
@@ -49,15 +53,16 @@
     color: #555555;
     margin-bottom: 20px;
 }
-.popup-content .username-input{
+
+.popup-content .username-input {
     border-radius: 5px;
     outline: none;
-    /* border: none; */
     background-color: #e8e8e8;
     height: 25px;
     display: block;
     margin: 0 auto;
 }
+
 .popup-content button {
     padding: 10px 20px;
     margin: 5px;
@@ -68,7 +73,6 @@
     transition: background-color 0.3s;
 }
 
-/* Sign-In Button */
 .sign-in-button {
     background-color: #007bff;
     color: white;
@@ -78,7 +82,6 @@
     background-color: #0056b3;
 }
 
-/* Guest Button */
 .guest-button {
     background-color: #f8f9fa;
     color: #333333;
@@ -88,9 +91,7 @@
     background-color: #e2e6ea;
 }
 
-/* Logout Button */
 .logout-button {
-    margin-top: 20px;
     padding: 10px 20px;
     background-color: #dc3545;
     color: white;
@@ -102,4 +103,10 @@
 
 .logout-button:hover {
     background-color: #c82333;
+}
+
+@media (max-width: 600px) {
+    .app {
+        font-size: medium;
+    }
 }

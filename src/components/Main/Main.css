@@ -1,7 +1,7 @@
 .main {
   flex: 1;
   min-height: 100vh;
-  padding-bottom: 15vh;
+  /* padding-bottom: 15vh; */
   position: relative;
 }
 
@@ -187,7 +187,7 @@
     display: none;
   }
   .main-bottom input {
-    flex: none;
+    /* flex: none; */
     width: 150px;
   }
   .main-bottom img {
@@ -198,5 +198,15 @@
   }
   .search-box div {
     gap: 5px;
+  }
+  .main .greet {
+    margin: 10px 0px;
+    font-size: 60px;
+    color: #c4c7c5;
+    font-weight: 500;
+    padding: 20px;
+  }
+  .main .bottom-info{
+    font-size: 10px;
   }
 }

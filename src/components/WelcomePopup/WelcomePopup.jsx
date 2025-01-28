@@ -4,13 +4,12 @@ const WelcomeGreet = () => {
     const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const [usernameInput, setUsernameInput] = useState("");
+    const [warning, setWarning] = useState('')
 
     useEffect(() => {
-        // Check if the user is logged in
         const isLoggedIn = localStorage.getItem("userLoggedIn") === "true";
         setUserIsLoggedIn(isLoggedIn);
 
-        // Show the popup if the user is not logged in
         if (!isLoggedIn) {
             setShowPopup(true);
         }
@@ -18,9 +17,11 @@ const WelcomeGreet = () => {
 
 
     const handleSignIn = () => {
-        // Simulate login
         if (!usernameInput) {
-            alert("Please enter a username");
+            const worning = `please enter your name`;
+            setWarning(worning);
+            setUserIsLoggedIn(false);
+
         }
         else {
             localStorage.setItem("userLoggedIn", "true");
@@ -29,29 +30,25 @@ const WelcomeGreet = () => {
             setShowPopup(false);
             window.location.reload();
         }
-        // Store the username in local storage
-        setUsernameInput(localStorage.getItem("username")); // Update the state with the username
+        setUsernameInput(localStorage.getItem("username")); 
     };
 
     const handleContinueAsGuest = () => {
-        // Hide the popup without logging in
         setShowPopup(false);
     };
 
     const handleLogout = () => {
-        // Simulate logout
         localStorage.removeItem("userLoggedIn");
         localStorage.removeItem("username");
         window.location.reload();
         setUserIsLoggedIn(false);
-        setShowPopup(true);
     };
 
     return (
         <div className="app">
             {userIsLoggedIn ? (
                 <div className="logged-in-nav">
-                    <h2>Welcome back,{localStorage.getItem("username")}!</h2>
+                    <strong>Welcome back,{localStorage.getItem("username")}!</strong>
                     <button onClick={handleLogout} className="logout-button">
                         Logout
                     </button>
@@ -74,6 +71,7 @@ const WelcomeGreet = () => {
                                 value={usernameInput}
                                 onChange={(e) => setUsernameInput(e.target.value)}
                             />
+                            {warning}
                             <br />
                             <button onClick={handleSignIn} className="sign-in-button">
                                 Sign In
