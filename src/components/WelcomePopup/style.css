@@ -92,13 +92,13 @@
 }
 
 .logout-button {
-    padding: 10px 20px;
-    background-color: #dc3545;
+    padding: 10px 15px;
+    background-color: transparent;
     color: white;
-    border: none;
+    border: 2px solid #dc3545;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 13px;
 }
 
 .logout-button:hover {

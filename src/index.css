@@ -6,7 +6,9 @@
   box-sizing: border-box;
   font-family: Outfit, sans-serif;
 }
-
+body{
+  background-color: #0A192F;
+}
 #root{
   min-height: 100vh;
   display: flex;

@@ -54,7 +54,7 @@ const WelcomeGreet = () => {
                     </button>
                 </div>
             ) : (
-                <h1>Welcome to V's Gemini</h1>
+                <p>Welcome to V's Gemini</p>
             )}
 
             {showPopup && (
