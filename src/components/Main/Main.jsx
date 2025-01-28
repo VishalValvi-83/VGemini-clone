@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
+import WelcomeGreet from "../WelcomePopup/WelcomePopup";
 
 function Main() {
   const {
@@ -18,14 +19,14 @@ function Main() {
     <div className="main">
       <div className="nav">
         <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+      <WelcomeGreet/>
       </div>
       <div className="main-container">
         {!showResult ? (
           <>
             <div className="greet">
               <p>
-                <span>Hello, VISHAL</span>
+                <span>Hello, {localStorage.getItem("username")}</span>
               </p>
               <p>How can I help you today?</p>
             </div>
@@ -51,7 +52,7 @@ function Main() {
         ) : (
           <div className="result">
             <div className="result-title">
-              <img src={assets.user_icon} alt="" />
+              <img src={assets.user_img} alt="" />
               <p>{recentPrompt}</p>
             </div>
             <div className="result-data">
