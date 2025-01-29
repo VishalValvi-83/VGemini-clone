@@ -56,9 +56,13 @@
 
 .popup-content .username-input {
     border-radius: 5px;
-    outline: none;
-    background-color: #e8e8e8;
-    height: 25px;
+    outline-color: #007bff;
+    background-color: #f6f6f6;
+    border: none;
+    height: auto;
+    font-size: 15px;
+    width: 90%;
+    padding: 10px 10px;
     display: block;
     margin: 0 auto;
 }

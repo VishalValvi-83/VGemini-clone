@@ -30,7 +30,7 @@ const WelcomeGreet = () => {
             setShowPopup(false);
             window.location.reload();
         }
-        setUsernameInput(localStorage.getItem("username")); 
+        setUsernameInput(localStorage.getItem("username"));
     };
 
     const handleContinueAsGuest = () => {
@@ -63,14 +63,16 @@ const WelcomeGreet = () => {
                         <h2>Welcome to Our App</h2>
                         <p>Sign in to access all features or continue as a guest.</p>
                         <form>
-                            Name:
-                            <input
-                                type="text"
-                                id="username"
-                                className="username-input"
-                                value={usernameInput}
-                                onChange={(e) => setUsernameInput(e.target.value)}
-                            />
+                            <div className="form-content">
+                                <input
+                                    type="text"
+                                    id="username"
+                                    className="username-input"
+                                    value={usernameInput}
+                                    placeholder="Enter your name here"
+                                    onChange={(e) => setUsernameInput(e.target.value)}
+                                />
+                            </div>
                             {warning}
                             <br />
                             <button onClick={handleSignIn} className="sign-in-button">
