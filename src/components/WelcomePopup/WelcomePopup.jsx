@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import './style.css'
+import { toast, ToastContainer } from "react-toastify";
 const WelcomeGreet = () => {
     const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const [usernameInput, setUsernameInput] = useState("");
-    const [warning, setWarning] = useState('')
+    // const [warning, setWarning] = useState('')
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem("userLoggedIn") === "true";
@@ -18,8 +19,8 @@ const WelcomeGreet = () => {
 
     const handleSignIn = () => {
         if (!usernameInput) {
-            const worning = `please enter your name`;
-            setWarning(worning);
+            // const worning = `please enter your name`;
+            // setWarning(worning);
             setUserIsLoggedIn(false);
 
         }
@@ -28,7 +29,10 @@ const WelcomeGreet = () => {
             localStorage.setItem("username", usernameInput);
             setUserIsLoggedIn(true);
             setShowPopup(false);
-            window.location.reload();
+            toast.success('Sign in successful!');
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
         }
         setUsernameInput(localStorage.getItem("username"));
     };
@@ -40,7 +44,7 @@ const WelcomeGreet = () => {
     const handleLogout = () => {
         localStorage.removeItem("userLoggedIn");
         localStorage.removeItem("username");
-        window.location.reload();
+        // window.location.reload();
         setUserIsLoggedIn(false);
     };
 
@@ -69,11 +73,12 @@ const WelcomeGreet = () => {
                                     id="username"
                                     className="username-input"
                                     value={usernameInput}
+                                    required
                                     placeholder="Enter your name here"
                                     onChange={(e) => setUsernameInput(e.target.value)}
                                 />
                             </div>
-                            {warning}
+                            {/* {warning} */}
                             <br />
                             <button onClick={handleSignIn} className="sign-in-button">
                                 Sign In
@@ -85,6 +90,7 @@ const WelcomeGreet = () => {
                     </div>
                 </div>
             )}
+            <ToastContainer/>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 .app {
     font-family: Arial, sans-serif;
     text-align: center;
+    font-size: medium;
 }
 
 .logged-in-nav {
