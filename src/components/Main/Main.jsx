@@ -3,6 +3,7 @@ import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
 import WelcomeGreet from "../WelcomePopup/WelcomePopup";
+import { toast } from "react-toastify";
 
 function Main() {
   const {
@@ -15,11 +16,22 @@ function Main() {
     input,
   } = useContext(Context);
 
+  document.onkeydown = e => {
+    if (e.key === 'F12') {
+      toast.error("please Don't 🙅🚫")
+      return false
+    }
+  }
+  
+  document.oncontextmenu = () =>{
+    return false  
+  }
+
   return (
     <div className="main">
       <div className="nav">
         <p>Gemini</p>
-      <WelcomeGreet/>
+        <WelcomeGreet />
       </div>
       <div className="main-container">
         {!showResult ? (
@@ -85,7 +97,7 @@ function Main() {
               {input ? (
                 <img onClick={() => onSent()} src={assets.send_icon} alt="" />
               ) : null}
-              
+
             </div>
           </div>
           <p className="bottom-info">
