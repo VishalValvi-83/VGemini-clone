@@ -42,10 +42,28 @@ const WelcomeGreet = () => {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem("userLoggedIn");
-        localStorage.removeItem("username");
-        // window.location.reload();
-        setUserIsLoggedIn(false);
+        const userLoggedIn = localStorage.getItem("userLoggedIn");
+        const logoutPromise = new Promise((resolve, reject) => {
+            if (userLoggedIn) {
+                localStorage.removeItem("userLoggedIn");
+                localStorage.removeItem("username");
+                resolve();
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            } else {
+                reject();
+            }
+        });
+
+        toast.promise(
+            logoutPromise,
+            {
+                pending: 'Logging out...',
+                success: 'Logged out successfully 👋',
+                error: 'You are not logged in 🤔'
+            }
+        );
     };
 
     return (
